@@ -5,6 +5,8 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template
 from FlaskWebProject1 import app
+import pypyodbc
+
 
 @app.route('/')
 @app.route('/home')
@@ -31,7 +33,7 @@ def about():
     """Renders the about page."""
     return render_template(
         'about.html',
-        title='About',
+        title='Azorel eschiuelul!',
         year=datetime.now().year,
-        message='Your application description page.'
+        message='aici vor fi inregistrari'
     )
