@@ -34,5 +34,3 @@ def about():
         year=datetime.now().year,
         message='aici vor fi inregistrari'
     )
-
-print "Salutare, lume!"
