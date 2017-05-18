@@ -35,4 +35,4 @@ def about():
         message='aici vor fi inregistrari'
     )
 
-print("Salutare, lume!")
+print "Salutare, lume!"
