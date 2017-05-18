@@ -16,6 +16,16 @@ def home():
         year=datetime.now().year,
     )
 
+
+@app.route('/auth')
+def auth():
+    return render_template(
+        'login.html',
+        title='Login',
+        year=datetime.now().year,
+    )
+
+
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     if request.form['password'] == 'password' and request.form['username'] == 'admin':
@@ -24,18 +34,12 @@ def do_admin_login():
         flash('wrong password!')
     return home()
 
-@app.route('/auth')
-def auth():
-    return render_template(
-        'login.html',
-        title='Login',
-    )
-
 
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
     return home()
+
 
 @app.route('/contact')
 def contact():
