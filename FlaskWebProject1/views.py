@@ -20,7 +20,7 @@ def home():
 @app.route('/auth')
 def auth():
     return render_template(
-        'login.html',
+        'auth.html',
         title='Login',
         year=datetime.now().year,
     )
