@@ -3,18 +3,25 @@
 {% block content %}
 
 <h2>{{ title }}.</h2>
-<h3>{{ message }}</h3>
-
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
-
+<link href="jumbotron-narrow.css" rel="stylesheet">
+<div class="jumbotron">
+    <h2>Don't hesitate to reach us in case you need something!</h2>
+</div>
+<div class="row marketing">
+        <div class="col-lg-6  col-lg-offset-3 text-center">
+          <h4>Choose any of our dear co-workers:</h4>
+          <div class="col-lg-6">
+            <div><b>Chiţaniuc Mirela:</b></div>
+            <div><b>Jîjîie Cătălina:</b></div>
+            <div><b>Pascal Codrin:</b></div>
+            <div><b>Ştefan Bogdan:</b></div>
+          </div>
+          <div class="col-lg-6">
+            <div>mirela2895@gmail.com</div>
+            <div>j.j.e.catalina@gmail.com</div>
+            <div>codrin.pascal@gmail.com</div>
+            <div>stefanbogdan.grz@gmail.com</div>
+          </div>
+        </div>
+</div>
 {% endblock %}
