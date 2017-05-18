@@ -23,6 +23,11 @@ def do_admin_login():
     else:
         flash('wrong password!')
     return home()
+ 
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    return home()
 
 @app.route('/contact')
 def contact():
