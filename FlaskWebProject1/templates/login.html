@@ -2,9 +2,7 @@
 {% extends "layout.html" %}
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
-{% if session['logged_in'] %}
-<p>You're logged in already!</p>
-{% else %}
+
 <form action="/login" method="POST">
 	<div class="login">
 		<div class="login-screen">
@@ -29,5 +27,5 @@
 		</div>
 	</div>
 </form>
-{% endif %}
+
 {% endblock %}
