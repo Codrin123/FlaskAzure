@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block links %}
+<link href="static/content/signin.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+
+<form action="/create_account" method="POST" class="form-border from-control">
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input name="email"
+    type="email"
+    id="inputEmail"
+    class="form-control"
+    placeholder="Email address"
+    required autofocus>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input name="pass1" 
+    type="password"
+    id="inputPassword"
+    class="form-control"
+    placeholder="Password"
+    required>
+
+    <label for="inputPassword" class="sr-only">Confirm Password</label>
+    <input name="pass2" 
+    type="password"
+    id="confirmPassword"
+    class="form-control"
+    placeholder="Confirm Password"
+    required>
+
+    <button 
+    class="btn btn-lg btn-primary btn-block button"
+    type="submit">
+    Sign in
+    </button>
+</form>
+
+<h3>{{ error }}</h3>
+{% endblock %}

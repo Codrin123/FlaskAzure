@@ -3,37 +3,102 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
+from flask import render_template, request, session
 from FlaskWebProject1 import app
-import pypyodbc
+import FlaskWebProject1.db_handler as db
 
 
 @app.route('/')
 @app.route('/home')
 def home():
     """Renders the home page."""
+    if session["logged_in"] is True:
+        message = "Logged in!"
+    else:
+        message = "Logged out!"
+
     return render_template(
         'index.html',
-        title='Home Page',
+        title='To Do',
+        message=message,
         year=datetime.now().year,
     )
 
 
-@app.route('/auth')
-def auth():
+"""Beginning of login/register methods"""
+@app.route('/login')
+def login():
+    """Renders the login page"""
     return render_template(
-        'auth.html',
+        'login.html',
         title='Login',
         year=datetime.now().year,
     )
 
 
-@app.route('/login', methods=['POST'])
-def do_admin_login():
-    if request.form['password'] == 'password' and request.form['username'] == 'admin':
-        session['logged_in'] = True
-    else:
-        flash('wrong password!')
+@app.route('/sign_in', methods=['POST'])
+def sign_in():
+    # get form data
+    email = request.form['email']
+    password = request.form['password']
+
+    # test credentials
+    authenticated = db.check_credentials(email, password)
+
+    if authenticated:
+        # good credentials
+        session["logged_in"] = True
+        return home()
+    
+    # invalid credentials
+    return render_template(
+        "login.html",
+        title="Login",
+        error="Invalid email or password!",
+        year=datetime.now().year
+    )
+
+
+@app.route('/register')
+def register():
+    """Renders the register page"""
+    return render_template(
+        'register.html',
+        title='Register',
+        year=datetime.now().year
+    )
+
+
+@app.route('/create_account', methods=['POST'])
+def create_account():
+    email = request.form['email']
+    password = request.form['pass1']
+    confirmation = request.form['pass2']
+
+    # check if passwords match
+    if password != confirmation:
+        return render_template(
+            'register.html',
+            title='Register',
+            error='Passwords did not match!',
+            year=datetime.now().year
+        )
+
+    # check if user already exists
+    if db.user_exists(email):
+        return render_template(
+            'register.html',
+            title="Register",
+            error="User already exists!",
+            year=datetime.now().year
+        )
+
+    # insert user into database
+    db.insert_user(email, password)
+
+    # change session value
+    session["logged_in"] = True
+
     return home()
 
 
@@ -41,6 +106,7 @@ def do_admin_login():
 def logout():
     session['logged_in'] = False
     return home()
+"""End of login/register methods"""
 
 
 @app.route('/contact')
@@ -51,6 +117,7 @@ def contact():
         title='Contact',
         year=datetime.now().year,
     )
+
 
 @app.route('/about')
 def about():

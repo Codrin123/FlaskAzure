@@ -1,0 +1,129 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+
+.button{
+  margin: 20px 2px;
+  border:none;
+  border-top: 20px;
+  text-align:center;
+  font-size:16px;
+  -webkit-transition-duration:0.2s;
+  /* Safari */
+  transition-duration:0.2s;
+  cursor:pointer;
+  border-radius:12px;
+  background-color:#f1c232;
+  color:#000000;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #009C9C;
+    border-color: #009C9C;
+}
+div.login { 
+  margin-top:30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0;
+  width: 100%;
+}
+div.help {
+  margin-top: 50px;
+  margin-bottom: -50px;
+}
+.form-border{
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  border: solid;
+  border-color: #009C9C;
+  box-shadow: 3px 3px;
+  border-radius: 12px;
+}
+
+.form-signin{
+  border: solid;
+  border-color: #3B5999;
+  box-shadow: 3px 3px;
+  border-radius: 12px;
+}
+
+input.form-control{
+  background-color: white;
+  border-radius:10px;
+}
+label.loginlabel{
+  color:#000000;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input {
+  margin-top:-5px;
+  margin-bottom: 15px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
